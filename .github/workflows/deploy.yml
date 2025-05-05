@@ -1,9 +1,10 @@
 name: React App CI/CD
 
 on:
+  workflow_dispatch:
   push:
     branches:
-      - main  # or 'master' if your default branch is master
+      - main  
 
 jobs:
   build:
@@ -28,4 +29,5 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build
+          publish_dir: ./dist
+          publish_branch: gh-pages
